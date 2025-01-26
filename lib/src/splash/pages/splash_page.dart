@@ -4,7 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:lottie/lottie.dart';
 
-import 'package:neon_weather/src/common/common.dart' show logger;
+import 'package:neon_weather/src/common/common.dart' show Assets, logger;
 import 'package:neon_weather/src/routes/routes.dart' show HomeRoute;
 import 'package:neon_weather/src/splash/splash.dart'
     show SplashPageState, splashPageProvider;
@@ -34,7 +34,9 @@ class SplashPage extends HookConsumerWidget {
       (previous, next) {
         if (next.appInitialized) {
           logger.i('app initialized');
-          context.router.replace(HomeRoute());
+          context.router.replace(
+            HomeRoute(),
+          );
         }
       },
     );
@@ -44,7 +46,7 @@ class SplashPage extends HookConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Lottie.asset('assets/lottie/splash_lottie.json'),
+            Lottie.asset(Assets.splashLottie),
           ],
         ),
       ),

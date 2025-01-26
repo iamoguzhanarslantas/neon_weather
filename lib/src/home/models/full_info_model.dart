@@ -70,10 +70,10 @@ class FullInfoModel {
 }
 
 class Coord {
-  double? lon;
-  double? lat;
+  dynamic lon;
+  dynamic lat;
   String? timezone;
-  int? timezoneOffset;
+  dynamic timezoneOffset;
 
   Coord({this.lon, this.lat, this.timezone, this.timezoneOffset});
 
@@ -95,21 +95,21 @@ class Coord {
 }
 
 class Current {
-  int? dt;
+  dynamic dt;
   String? dtTxt;
-  int? sunrise;
+  dynamic sunrise;
   String? sunriseTxt;
-  int? sunset;
+  dynamic sunset;
   String? sunsetTxt;
-  double? temperature;
-  double? tempratureFeelsLike;
-  double? dewPointTemprature;
+  dynamic temperature;
+  dynamic tempratureFeelsLike;
+  dynamic dewPointTemprature;
   String? tempratureUnit;
-  int? pressure;
+  dynamic pressure;
   String? pressureUnit;
-  int? humidity;
+  dynamic humidity;
   String? humidityUnit;
-  int? visibility;
+  dynamic visibility;
   String? visibilityUnit;
   Uv? uv;
   Clouds? clouds;
@@ -118,29 +118,30 @@ class Current {
   Wind? wind;
   List<Weather>? weather;
 
-  Current(
-      {this.dt,
-      this.dtTxt,
-      this.sunrise,
-      this.sunriseTxt,
-      this.sunset,
-      this.sunsetTxt,
-      this.temperature,
-      this.tempratureFeelsLike,
-      this.dewPointTemprature,
-      this.tempratureUnit,
-      this.pressure,
-      this.pressureUnit,
-      this.humidity,
-      this.humidityUnit,
-      this.visibility,
-      this.visibilityUnit,
-      this.uv,
-      this.clouds,
-      this.rain,
-      this.snow,
-      this.wind,
-      this.weather});
+  Current({
+    this.dt,
+    this.dtTxt,
+    this.sunrise,
+    this.sunriseTxt,
+    this.sunset,
+    this.sunsetTxt,
+    this.temperature,
+    this.tempratureFeelsLike,
+    this.dewPointTemprature,
+    this.tempratureUnit,
+    this.pressure,
+    this.pressureUnit,
+    this.humidity,
+    this.humidityUnit,
+    this.visibility,
+    this.visibilityUnit,
+    this.uv,
+    this.clouds,
+    this.rain,
+    this.snow,
+    this.wind,
+    this.weather,
+  });
 
   Current.fromJson(Map<String, dynamic> json) {
     dt = json['dt'];
@@ -213,7 +214,7 @@ class Current {
 }
 
 class Uv {
-  double? index;
+  dynamic index;
   String? level;
 
   Uv({this.index, this.level});
@@ -232,7 +233,7 @@ class Uv {
 }
 
 class Clouds {
-  int? cloudiness;
+  dynamic cloudiness;
   String? unit;
 
   Clouds({this.cloudiness, this.unit});
@@ -251,7 +252,7 @@ class Clouds {
 }
 
 class Rain {
-  int? amount;
+  dynamic amount;
   String? unit;
 
   Rain({this.amount, this.unit});
@@ -270,11 +271,11 @@ class Rain {
 }
 
 class Wind {
-  double? speed;
-  int? windDeg;
-  double? gust;
+  dynamic speed;
+  dynamic windDeg;
+  dynamic gust;
   String? direction;
-  double? gustSpeed;
+  dynamic gustSpeed;
   String? speedUnit;
 
   Wind(
@@ -307,7 +308,7 @@ class Wind {
 }
 
 class Weather {
-  int? id;
+  dynamic id;
   String? main;
   String? description;
   String? icon;
@@ -332,9 +333,9 @@ class Weather {
 }
 
 class Minutely {
-  int? dt;
+  dynamic dt;
   String? dtTxt;
-  int? precipitation;
+  dynamic precipitation;
   String? precipitationUnit;
 
   Minutely({this.dt, this.dtTxt, this.precipitation, this.precipitationUnit});
@@ -357,19 +358,19 @@ class Minutely {
 }
 
 class Hourly {
-  int? dt;
+  dynamic dt;
   String? dtTxt;
-  double? temperature;
-  double? tempratureFeelsLike;
-  double? dewPointTemprature;
+  dynamic temperature;
+  dynamic tempratureFeelsLike;
+  dynamic dewPointTemprature;
   String? tempratureUnit;
-  int? pressure;
+  dynamic pressure;
   String? pressureUnit;
-  int? humidity;
+  dynamic humidity;
   String? humidityUnit;
-  int? visibility;
+  dynamic visibility;
   String? visibilityUnit;
-  int? probabilityOfPrecipitation;
+  dynamic probabilityOfPrecipitation;
   String? probabilityOfPrecipitationUnit;
   Uv? uv;
   Clouds? clouds;
@@ -468,23 +469,23 @@ class Hourly {
 }
 
 class Daily {
-  int? dt;
+  dynamic dt;
   String? dtTxt;
-  int? sunrise;
+  dynamic sunrise;
   String? sunriseTxt;
-  int? sunset;
+  dynamic sunset;
   String? sunsetTxt;
-  double? moonPhase;
+  dynamic moonPhase;
   String? summary;
   Temperature? temperature;
   TemperatureFeelsLike? temperatureFeelsLike;
-  double? dewPointTemprature;
+  dynamic dewPointTemprature;
   String? tempratureUnit;
-  int? pressure;
+  dynamic pressure;
   String? pressureUnit;
-  int? humidity;
+  dynamic humidity;
   String? humidityUnit;
-  int? probabilityOfPrecipitation;
+  dynamic probabilityOfPrecipitation;
   String? probabilityOfPrecipitationUnit;
   Uv? uv;
   Clouds? clouds;
@@ -603,12 +604,12 @@ class Daily {
 }
 
 class Temperature {
-  double? minimum;
-  double? maximum;
-  double? daytime;
-  double? nighttime;
-  double? evening;
-  double? morning;
+  dynamic minimum;
+  dynamic maximum;
+  dynamic daytime;
+  dynamic nighttime;
+  dynamic evening;
+  dynamic morning;
 
   Temperature(
       {this.minimum,
@@ -640,10 +641,10 @@ class Temperature {
 }
 
 class TemperatureFeelsLike {
-  double? daytime;
-  double? nighttime;
-  double? evening;
-  double? morning;
+  dynamic daytime;
+  dynamic nighttime;
+  dynamic evening;
+  dynamic morning;
 
   TemperatureFeelsLike(
       {this.daytime, this.nighttime, this.evening, this.morning});
@@ -666,7 +667,7 @@ class TemperatureFeelsLike {
 }
 
 class Snow {
-  double? amount;
+  dynamic amount;
   String? unit;
 
   Snow({this.amount, this.unit});
@@ -687,8 +688,8 @@ class Snow {
 class Alerts {
   String? senderName;
   String? event;
-  int? start;
-  int? end;
+  dynamic start;
+  dynamic end;
   String? description;
   List<String>? tags;
 

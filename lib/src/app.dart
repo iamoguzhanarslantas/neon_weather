@@ -10,14 +10,12 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Consumer(builder: (context, ref, child) {
-      final router = ref.read(appRouterProvider);
-      return MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        routerConfig: router.config(),
-        title: AppConfig.appTitle,
-        theme: AppThemes.darkTheme,
-      );
-    });
+    final router = ref.read(appRouterProvider);
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: router.config(),
+      title: AppConfig.appTitle,
+      theme: AppThemes.darkTheme,
+    );
   }
 }
