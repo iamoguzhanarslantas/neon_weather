@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:neon_weather/src/common/common.dart'
     show APIEndPoints, DioClient, logger;
+import 'package:neon_weather/src/config/config.dart' show AppConfig;
 import 'package:neon_weather/src/home/home.dart'
     show FullInfoModel, IFullInfoRepository;
 
@@ -19,12 +20,12 @@ class FullInfoRepository extends IFullInfoRepository {
   Future<List<FullInfoModel>?> getFullInfo() async {
     try {
       final headers = {
-        'x-rapidapi-key': '20868d8eebmsh9b70080bfb489b3p17e839jsn613e35437187',
-        'x-rapidapi-host': 'weather-api167.p.rapidapi.com',
+        'x-rapidapi-key': AppConfig.apiKey,
+        'x-rapidapi-host': APIEndPoints.kBaseUrl,
       };
 
       final params = {
-        'place': 'London,GB',
+        'place': AppConfig.defaultCity,
         'lang': 'en',
         'units': 'metric',
         'mode': 'json',

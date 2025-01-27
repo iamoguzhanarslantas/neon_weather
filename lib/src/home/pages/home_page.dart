@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:neon_weather/src/home/home.dart'
-    show homePageStateNotifierProvider;
+    show WeatherInfo, homePageStateNotifierProvider;
 
 @RoutePage()
 class HomePage extends ConsumerWidget {
@@ -82,57 +82,33 @@ class HomePage extends ConsumerWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Column(
-                                  children: [
-                                    Text(
-                                      'Today',
-                                      style: TextStyle(
-                                        decoration: TextDecoration.underline,
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                    Text(
-                                      data.daily?[index].temperature?.minimum
-                                                  .toString() !=
-                                              null
-                                          ? 'Min: ${int.parse(data.daily![index].temperature!.minimum.truncate().toString())}°C'
-                                          : 'No data',
-                                    ),
-                                    Text(
-                                      data.daily?[index].temperature?.maximum
-                                                  .toString() !=
-                                              null
-                                          ? 'Max: ${int.parse(data.daily![index].temperature!.maximum.truncate().toString())}°C'
-                                          : 'No data',
-                                    ),
-                                  ],
+                                WeatherInfo(
+                                  text: 'Today',
+                                  info1: data.daily?[index].temperature?.minimum
+                                              .toString() !=
+                                          null
+                                      ? 'Min: ${int.parse(data.daily![index].temperature!.minimum.truncate().toString())}°C'
+                                      : 'No data',
+                                  info2: data.daily?[index].temperature?.maximum
+                                              .toString() !=
+                                          null
+                                      ? 'Max: ${int.parse(data.daily![index].temperature!.maximum.truncate().toString())}°C'
+                                      : 'No data',
                                 ),
-                                Column(
-                                  children: [
-                                    Text(
-                                      'Tomorrow',
-                                      style: TextStyle(
-                                        decoration: TextDecoration.underline,
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                    Text(
-                                      data.daily?[index + 1].temperature
-                                                  ?.minimum
-                                                  .toString() !=
-                                              null
-                                          ? 'Min: ${int.parse(data.daily![index + 1].temperature!.minimum.truncate().toString())}°C'
-                                          : 'No data',
-                                    ),
-                                    Text(
-                                      data.daily?[index + 1].temperature
-                                                  ?.maximum
-                                                  .toString() !=
-                                              null
-                                          ? 'Max: ${int.parse(data.daily![index + 1].temperature!.maximum.truncate().toString())}°C'
-                                          : 'No data',
-                                    ),
-                                  ],
+                                WeatherInfo(
+                                  text: 'Tomorrow',
+                                  info1: data.daily?[index + 1].temperature
+                                              ?.minimum
+                                              .toString() !=
+                                          null
+                                      ? 'Min: ${int.parse(data.daily![index + 1].temperature!.minimum.truncate().toString())}°C'
+                                      : 'No data',
+                                  info2: data.daily?[index + 1].temperature
+                                              ?.maximum
+                                              .toString() !=
+                                          null
+                                      ? 'Max: ${int.parse(data.daily![index + 1].temperature!.maximum.truncate().toString())}°C'
+                                      : 'No data',
                                 ),
                               ],
                             ),
@@ -142,58 +118,34 @@ class HomePage extends ConsumerWidget {
                               children: [
                                 Column(
                                   children: [
-                                    Text(
-                                      'Wind',
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        decoration: TextDecoration.underline,
-                                      ),
-                                    ),
-                                    Text(
-                                      data.current?.wind?.speed != null
+                                    WeatherInfo(
+                                      text: 'Wind',
+                                      info1: data.current?.wind?.speed != null
                                           ? '${int.parse(data.current!.wind!.speed.truncate().toString())} meter/sec'
                                           : 'No data',
                                     ),
-                                    Text(
-                                      'Rain',
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        decoration: TextDecoration.underline,
-                                      ),
-                                    ),
-                                    Text(
-                                      data.current?.rain?.amount != null
+                                    WeatherInfo(
+                                      text: 'Rain',
+                                      info1: data.current?.rain?.amount != null
                                           ? '${int.parse(data.current!.rain!.amount.truncate().toString())} mm/h'
                                           : 'No data',
-                                    ),
+                                    )
                                   ],
                                 ),
                                 Column(
                                   children: [
-                                    Text(
-                                      'Humidity',
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        decoration: TextDecoration.underline,
-                                      ),
-                                    ),
-                                    Text(
-                                      data.current?.humidity != null
+                                    WeatherInfo(
+                                      text: 'Humidity',
+                                      info1: data.current?.humidity != null
                                           ? '% ${int.parse(data.current!.humidity.truncate().toString())}'
                                           : 'No data',
                                     ),
-                                    Text(
-                                      'Pressure',
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        decoration: TextDecoration.underline,
-                                      ),
-                                    ),
-                                    Text(
-                                      data.current?.pressure != null
+                                    WeatherInfo(
+                                      text: 'Pressure',
+                                      info1: data.current?.pressure != null
                                           ? '${int.parse(data.current!.pressure.truncate().toString())} hPa'
                                           : 'No data',
-                                    ),
+                                    )
                                   ],
                                 ),
                               ],

@@ -1,3 +1,4 @@
+export 'components/weather_info.dart';
 export 'models/full_info_model.dart';
 export 'models/overview_model.dart';
 export 'pages/home_page.dart';

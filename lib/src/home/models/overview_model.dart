@@ -1,6 +1,6 @@
 class OverviewModel {
-  double? lat;
-  double? lon;
+  dynamic lat;
+  dynamic lon;
   String? tz;
   String? date;
   String? units;
